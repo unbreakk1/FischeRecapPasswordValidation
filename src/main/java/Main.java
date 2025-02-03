@@ -3,7 +3,8 @@ public class Main
 {
     public static void main(String[] args)
     {
-
+       var isPasswordValid = isValid("Password@123");
+       System.out.println(isPasswordValid);
     }
 
     public static boolean isValid(String password)
@@ -15,7 +16,8 @@ public class Main
 
     }
 
-    public static boolean isWeakPassword(String password) {
+    public static boolean isWeakPassword(String password)
+    {
         return !isValid(password); // A password is weak if it does not meet all criteria
     }
 
@@ -58,15 +60,21 @@ public class Main
         }
         return false;
     }
+
     //----------------------- BONUS STUFF -------------------------------------------------------------
 
     public static boolean containsSpecialCharacter(String password) {
-        for (char c : password.toCharArray()) {
-            if (!Character.isLetterOrDigit(c)) { // Not a letter or digit = special character
+        for (char c : password.toCharArray())
+        {
+            if (!Character.isLetterOrDigit(c)) // Not a letter or digit = special character
+            {
                 return true;
             }
         }
         return false;
+
+        // You could also use this if you want more control/or want to exclude characters
+        // return password.matches(".*[!@#$%^&*()\-_=+\[\]{};:'",.<>?/`~].*");
     }
 
 }
