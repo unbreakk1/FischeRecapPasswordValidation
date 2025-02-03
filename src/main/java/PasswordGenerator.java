@@ -12,7 +12,6 @@ public class PasswordGenerator
     private static final String ALL_CHARACTERS = UPPERCASE + LOWERCASE + DIGITS + SPECIAL_CHARACTERS;
     private static final int DEFAULT_PASSWORD_LENGTH = 12; //
 
-
     public static String generateSecurePassword()
     {
         return generateSecurePassword(DEFAULT_PASSWORD_LENGTH);
@@ -21,9 +20,11 @@ public class PasswordGenerator
     public static String generateSecurePassword(int length)
     {
         if(length<8)
-            try {
+            try
+            {
                 throw new IllegalAccessException("Password have at least 8 characters");
-            } catch (IllegalAccessException e) {
+            } catch (IllegalAccessException e)
+            {
                 throw new RuntimeException(e);
             }
 
@@ -34,7 +35,6 @@ public class PasswordGenerator
         password.append(getRandomCharacter(LOWERCASE,random));
         password.append(getRandomCharacter(DIGITS,random));
         password.append(getRandomCharacter(SPECIAL_CHARACTERS,random));
-
 
         for(int i =4; i<length;i++)
         {

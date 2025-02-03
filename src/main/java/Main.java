@@ -13,8 +13,6 @@ public class Main
             System.out.println(GREEN + "Password: " + myPassword + " is a valid password." + RESET);
         else
             System.out.println(RED + "Password : " + myPassword + " is NOT a valid password"+ RESET);
-
-
     }
 
     public static boolean isValid(String password)
@@ -23,7 +21,6 @@ public class Main
                 containsDigit(password) &&
                 containsLowerAndUpperCase(password) &&
                 containsSpecialCharacter(password);
-
     }
 
     public static boolean isWeakPassword(String password)
@@ -32,9 +29,7 @@ public class Main
             (  !containsDigit(password) ||
                !containsLowerAndUpperCase(password) ||
                !containsSpecialCharacter(password));
-
     }
-
 
     public static boolean isLengthValid(String password)
     {
@@ -50,6 +45,7 @@ public class Main
                 return true;
             }
         }
+
         return false;
     }
 
@@ -65,13 +61,11 @@ public class Main
             else if (Character.isUpperCase(c))
                 hasUpper = true;
 
-
-            // If both conditions are satisfied, we can break early.
+            // break early if both conditions are met.
             if (hasLower && hasUpper)
-            {
                 return true;
-            }
         }
+
         return false;
     }
 
@@ -85,10 +79,10 @@ public class Main
                 return true;
             }
         }
+
         return false;
 
         // You could also use this if you want more control/or want to exclude characters
         // return password.matches(".*[!@#$%^&*()\-_=+\[\]{};:'",.<>?/`~].*");
     }
-
 }
