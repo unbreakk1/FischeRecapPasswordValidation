@@ -10,4 +10,17 @@ public class Main
     {
         return password != null && password.length() >= 8;
     }
+
+    public static boolean containsDigit(String password)
+    {
+        for (char c : password.toCharArray())
+        {
+            if (Character.isDigit(c))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

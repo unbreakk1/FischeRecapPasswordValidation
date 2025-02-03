@@ -16,4 +16,19 @@ public class PasswordValidationTest
         Assertions.assertFalse(Main.isValid("1234567")); // Invalid password (7 chars)
         Assertions.assertFalse(Main.isValid("abc")); // Invalid password
     }
+
+    @Test
+    void shouldPassIfPasswordContainsAtLeastOneDigit()
+    {
+        Assertions.assertTrue(Main.containsDigit("password123")); // Contains digits
+        Assertions.assertTrue(Main.containsDigit("1password")); // Contains digits
+    }
+
+    @Test
+    void shouldFailIfPasswordDoesNotContainAnyDigit()
+    {
+        Assertions.assertFalse(Main.containsDigit("password")); // No digits
+        Assertions.assertFalse(Main.containsDigit("abcdefgh")); // No digits
+    }
+
 }
