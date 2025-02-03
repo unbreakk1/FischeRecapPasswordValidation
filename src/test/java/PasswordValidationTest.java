@@ -50,6 +50,16 @@ public class PasswordValidationTest
     }
 
     @Test
+    void shouldIdentifyAWeakPassword()
+    {
+        Assertions.assertTrue(Main.isWeakPassword("short")); // Too short
+        Assertions.assertTrue(Main.isWeakPassword("NoDigits!@")); // Missing digit, length valid
+        Assertions.assertTrue(Main.isWeakPassword("nouppercase@123")); // Missing uppercase
+        Assertions.assertTrue(Main.isWeakPassword("NOLOWERCASE@123")); // Missing lowercase
+        Assertions.assertTrue(Main.isWeakPassword("noSpecial123"));
+    }
+
+        @Test
     void shouldBeWeakIfPasswordDoesNotContainAnyDigit() {
         Assertions.assertTrue(Main.isWeakPassword("Password")); // No digits
         Assertions.assertTrue(Main.isWeakPassword("Shortpw")); // No digits

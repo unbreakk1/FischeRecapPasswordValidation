@@ -7,12 +7,14 @@ public class Main
 
     public static void main(String[] args)
     {
-       String myPassword = PasswordGenerator.generateSecurePassword();
+        String myPassword = PasswordGenerator.generateSecurePassword();
 
         if(isValid(myPassword))
             System.out.println(GREEN + "Password: " + myPassword + " is a valid password." + RESET);
         else
             System.out.println(RED + "Password : " + myPassword + " is NOT a valid password"+ RESET);
+
+
     }
 
     public static boolean isValid(String password)
@@ -26,7 +28,11 @@ public class Main
 
     public static boolean isWeakPassword(String password)
     {
-        return !isValid(password); // A password is weak if it does not meet all criteria
+        return isLengthValid(password) &&
+            (  !containsDigit(password) ||
+               !containsLowerAndUpperCase(password) ||
+               !containsSpecialCharacter(password));
+
     }
 
 
