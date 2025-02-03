@@ -20,8 +20,8 @@ public class PasswordValidationTest
     @Test
     void shouldPassIfPasswordContainsAtLeastOneDigit()
     {
-        Assertions.assertTrue(Main.isValid("password123")); // Contains digits
-        Assertions.assertTrue(Main.isValid("1password")); // Contains digits
+        Assertions.assertTrue(Main.containsDigit("password123")); // Contains digits
+        Assertions.assertTrue(Main.containsDigit("1password")); // Contains digits
     }
 
     @Test
@@ -33,14 +33,14 @@ public class PasswordValidationTest
 
     @Test
     void shouldPassIfPasswordContainsBothLowercaseAndUppercaseLetters() {
-        Assertions.assertTrue(Main.isValid("Password123")); // Contains lowercase and uppercase
-        Assertions.assertTrue(Main.isValid("pAssword12")); // Contains lowercase and uppercase
+        Assertions.assertTrue(Main.containsLowerAndUpperCase("Password123")); // Contains lowercase and uppercase
+        Assertions.assertTrue(Main.containsLowerAndUpperCase("pAssword12")); // Contains lowercase and uppercase
     }
 
     @Test
     void shouldFailIfPasswordDoesNotContainBothLowercaseAndUppercaseLetters() {
-        Assertions.assertFalse(Main.isValid("password123")); // Only lowercase
-        Assertions.assertFalse(Main.isValid("PASSWORD123")); // Only uppercase
+        Assertions.assertFalse(Main.containsLowerAndUpperCase("password123")); // Only lowercase
+        Assertions.assertFalse(Main.containsLowerAndUpperCase("PASSWORD123")); // Only uppercase
     }
 
     @Test
