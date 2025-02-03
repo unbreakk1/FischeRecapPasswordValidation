@@ -1,10 +1,18 @@
 
 public class Main
 {
+    public static final String RESET = "\u001B[0m";  // Reset to default color
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+
     public static void main(String[] args)
     {
-       var isPasswordValid = isValid("Password@123");
-       System.out.println(isPasswordValid);
+       String myPassword = PasswordGenerator.generateSecurePassword();
+
+        if(isValid(myPassword))
+            System.out.println(GREEN + "Password: " + myPassword + " is a valid password." + RESET);
+        else
+            System.out.println(RED + "Password : " + myPassword + " is NOT a valid password"+ RESET);
     }
 
     public static boolean isValid(String password)

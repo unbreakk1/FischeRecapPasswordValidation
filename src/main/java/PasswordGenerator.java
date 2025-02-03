@@ -10,12 +10,8 @@ public class PasswordGenerator
     private static final String DIGITS = "0123456789";
     private static final String SPECIAL_CHARACTERS = "!@#$%^&*()-_+=<>?/{}[]|~";
     private static final String ALL_CHARACTERS = UPPERCASE + LOWERCASE + DIGITS + SPECIAL_CHARACTERS;
-    private static final int DEFAULT_PASSWORD_LENGTH = 9; //
+    private static final int DEFAULT_PASSWORD_LENGTH = 12; //
 
-    public static void main(String[] args)
-    {
-        System.out.println(generateSecurePassword());
-    }
 
     public static String generateSecurePassword()
     {
@@ -49,7 +45,6 @@ public class PasswordGenerator
         for(char c : password.toString().toCharArray())
         {
             passwordCharacters.add(c);
-            System.out.println(passwordCharacters);
         }
 
         Collections.shuffle(passwordCharacters, random);
